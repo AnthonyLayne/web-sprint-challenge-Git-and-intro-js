@@ -330,7 +330,7 @@ For example artistInfo(artists, 'Frida Kahlo') will return:
 function artistInfo(array, name) {
   for (let i = 0; i < array.length; i++) {
     const artist = array[i];
-    if (artist.name === name) return artist.bio;
+    if (artist.name === name) return [artist.bio];
   }
 }
 console.log(artistInfo(artists, "Frida Kahlo"));
@@ -344,11 +344,15 @@ For example artistByCountry(artists, 'Spanish') will return: [ 'Salvador Dali', 
 */
 
 function artistByCountry(array, nationality) {
+  const artistsByCountry = [];
+
   for (let i = 0; i < array.length; i++) {
     if (array[i].nationality === nationality) {
-      return array.nationality;
+      artistsByCountry.push(array[i].name);
     }
   }
+
+  return artistsByCountry;
 }
 console.log(artistByCountry(artists, "Spanish"));
 /* ***** END OF TASKS ***** */
